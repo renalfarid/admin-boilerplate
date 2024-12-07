@@ -3,12 +3,12 @@ export default function initializeCharts(detailPajak) {
     const chartContent = `
       <!-- Grafik Bar -->
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-lg font-bold mb-4">Grafik Bar (Realisasi vs Target)</h2>
+        <h2 class="text-lg font-bold mb-4">Realisasi Pajak</h2>
         <canvas id="barChart"></canvas>
       </div>
       <!-- Grafik Pie -->
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-lg font-bold mb-4">Grafik Pie (Persentase Per Jenis Pajak)</h2>
+        <h2 class="text-lg font-bold mb-4">Jenis Pajak</h2>
         <canvas id="pieChart"></canvas>
       </div>
     `;
