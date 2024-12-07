@@ -1,0 +1,1 @@
+Boilerplate admin template (html, javascript, tailwind)
