@@ -85,11 +85,11 @@ export default async function dashboard() {
       <h2 class="text-lg font-bold mb-4">Detail Realisasi</h2>
       <table class="w-full border-collapse">
         <thead>
-          <tr>
+          <tr class="bg-red-800 text-white">
             <th class="border p-2 text-left">Jenis Pajak</th>
-            <th class="border p-2 text-right">Target</th>
-            <th class="border p-2 text-right">Realisasi</th>
-            <th class="border p-2 text-right">Sisa</th>
+            <th class="border p-2 text-center">Target</th>
+            <th class="border p-2 text-center">Realisasi</th>
+            <th class="border p-2 text-center">Sisa</th>
           </tr>
         </thead>
         <tbody>
