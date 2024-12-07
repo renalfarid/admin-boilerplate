@@ -14,7 +14,7 @@ export default function sidebar() {
   ];
 
   return `
-    <aside class="bg-gray-800 text-white w-full md:w-full lg:w-full p-4 min-h-full">
+    <aside class="bg-gray-800 text-white w-full md:w-full lg:w-full p-4 min-h-screen">
       <ul>
         ${menu
           .map((item) =>
