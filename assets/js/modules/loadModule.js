@@ -1,9 +1,7 @@
 
 export default async function loadModule(moduleId) {
   try {
-    //console.log(`Loading module: ${moduleId}`); // Debugging
     const module = await import(`./${getModulePath(moduleId)}.js`);
-    //console.log(`Module loaded successfully: ${moduleId}`, module); // Debugging
     return module.default();
   } catch (error) {
     console.error(`Failed to load module: ${moduleId}`, error);

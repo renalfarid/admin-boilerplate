@@ -64,7 +64,7 @@ export default function sidebar() {
   ];
 
   return `
-    <aside class="bg-gray-800 text-white w-full md:w-full lg:w-full p-4 min-h-screen">
+    <aside class="bg-red-900 text-white w-full md:w-full lg:w-full p-4 min-h-screen">
       <ul>
         ${menu
           .map((item) =>
@@ -74,13 +74,13 @@ export default function sidebar() {
               <div class="flex items-center space-x-2 cursor-pointer" data-id="${item.id}" onclick="toggleSubmenu('${item.id}')">
                 <i class="${item.icon}"></i>
                 <span>${item.name}</span>
-                <i class="pr-4 fas fa-chevron-down ml-auto text-gray-400"></i>
+                <i class="pr-4 fas fa-chevron-down ml-auto text-red-400"></i>
               </div>
               <ul id="${item.id}-submenu" class="hidden ml-4">
                 ${item.submenu
                   .map(
                     (sub) => `
-                  <li class="p-2 hover:bg-gray-700 cursor-pointer" data-id="${sub.id}">
+                  <li class="p-2 hover:bg-red-700 cursor-pointer" data-id="${sub.id}">
                     <span>${sub.name}</span>
                   </li>
                 `
@@ -90,7 +90,7 @@ export default function sidebar() {
             </li>
           `
               : `
-            <li class="p-2 hover:bg-gray-700 cursor-pointer" data-id="${item.id}">
+            <li class="p-2 hover:bg-red-700 cursor-pointer" data-id="${item.id}">
               <div class="flex items-center space-x-2">
                 <i class="${item.icon}"></i>
                 <span>${item.name}</span>
