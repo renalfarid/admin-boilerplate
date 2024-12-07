@@ -5,9 +5,7 @@ export default function sidebar() {
       id: "jenis",
       name: "Jenis Pajak",
       icon: "fas fa-tags",
-      submenu: [
-        { id: "daftar", name: "Daftar Jenis Pajak" },
-      ],
+      submenu: [{ id: "daftar", name: "Daftar Jenis Pajak" }],
     },
     {
       id: "wp",
@@ -64,42 +62,65 @@ export default function sidebar() {
   ];
 
   return `
-    <aside class="bg-red-900 text-white w-full md:w-full lg:w-full p-4 min-h-screen">
-      <ul>
-        ${menu
-          .map((item) =>
-            item.submenu
-              ? `
-            <li class="p-2">
-              <div class="flex items-center space-x-2 cursor-pointer" data-id="${item.id}" onclick="toggleSubmenu('${item.id}')">
-                <i class="${item.icon}"></i>
-                <span>${item.name}</span>
-                <i class="pr-4 fas fa-chevron-down ml-auto text-red-400"></i>
-              </div>
-              <ul id="${item.id}-submenu" class="hidden ml-4">
-                ${item.submenu
-                  .map(
-                    (sub) => `
-                  <li class="p-2 hover:bg-red-700 cursor-pointer" data-id="${sub.id}">
-                    <span>${sub.name}</span>
-                  </li>
-                `
-                  )
-                  .join("")}
-              </ul>
-            </li>
-          `
-              : `
-            <li class="p-2 hover:bg-red-700 cursor-pointer" data-id="${item.id}">
-              <div class="flex items-center space-x-2">
-                <i class="${item.icon}"></i>
-                <span>${item.name}</span>
-              </div>
-            </li>
-          `
-          )
-          .join("")}
-      </ul>
-    </aside>
+    <div>
+      <!-- Hamburger Icon -->
+      <button
+        id="menu-toggle"
+        class="p-4 text-white bg-red-900  w-full md:w-full focus:outline-none flex justify-start"
+        aria-label="Toggle Sidebar"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Sidebar -->
+      <aside
+        id="sidebar-menu"
+        class="bg-red-900 text-white w-full md:w-full lg:w-full p-4 min-h-screen"
+      >
+        <ul>
+          ${menu
+            .map((item) =>
+              item.submenu
+                ? `
+              <li class="p-2">
+                <div class="flex items-center space-x-2 cursor-pointer" data-id="${item.id}" onclick="toggleSubmenu('${item.id}')">
+                  <i class="${item.icon}"></i>
+                  <span>${item.name}</span>
+                  <i class="pr-4 fas fa-chevron-down ml-auto text-red-400"></i>
+                </div>
+                <ul id="${item.id}-submenu" class="hidden ml-4">
+                  ${item.submenu
+                    .map(
+                      (sub) => `
+                    <li class="p-2 hover:bg-red-700 cursor-pointer" data-id="${sub.id}">
+                      <span>${sub.name}</span>
+                    </li>
+                  `
+                    )
+                    .join("")}
+                </ul>
+              </li>
+            `
+                : `
+              <li class="p-2 hover:bg-red-700 cursor-pointer" data-id="${item.id}">
+                <div class="flex items-center space-x-2">
+                  <i class="${item.icon}"></i>
+                  <span>${item.name}</span>
+                </div>
+              </li>
+            `
+            )
+            .join("")}
+        </ul>
+      </aside>
+    </div>
   `;
 }
+
+$(document).ready(function () {
+  // Toggle Sidebar
+  $("#menu-toggle").click(function () {
+    console.log("Menu clicked");
+    $("#sidebar-menu").toggleClass("-translate-x-full hidden");
+  });
+});
