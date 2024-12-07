@@ -1,3 +1,4 @@
+
 export default async function loadModule(moduleId) {
   try {
     //console.log(`Loading module: ${moduleId}`); // Debugging
@@ -18,12 +19,29 @@ export default async function loadModule(moduleId) {
 function getModulePath(moduleId) {
   const mapping = {
     // Main menu
-    dashboard: "dashboard/dashboard",
-    settings: "settings/settings",
-
+    "dashboard": "dashboard/dashboard",
+    "notifikasi": "notifikasi/notifikasi",
+    "logs": "logs/logs",
+    "bantuan": "bantuan/bantuan",
+    
     // Submenus under "Users"
-    roles: "users/roles",
+    "roles": "users/roles",
     "user-list": "users/user-list",
+
+    "daftar": "jenis/daftar",
+
+    "registrasi_wp": "wp/registrasi_wp",
+    "list_wp": "wp/list_wp",
+    "status_wp": "wp/status_wp",
+     
+    "setor_pajak": "transaksi/setor_pajak",
+    "riwayat": "transaksi/riwayat",
+    "rekapitulasi": "transaksi/rekapitulasi",
+
+    "konfigurasi": "settings/konfigurasi",
+    "backup": "settings/backup",
+    "profil": "settings/profil",
+
   };
 
   return mapping[moduleId] || "not-found";
