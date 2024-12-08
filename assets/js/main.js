@@ -1,7 +1,7 @@
 import navbar from './modules/navbar.js';
 import sidebar from './modules/sidebar.js';
 import footer from './modules/footer.js';
-import loadModule from './modules/loadModule.js';
+import loadContentWithSpinner from './modules/loadModule.js';
 
 // Render static components
 document.getElementById('navbar').innerHTML = navbar();
@@ -15,7 +15,7 @@ document.querySelectorAll('[data-id]').forEach((menu) => {
   
       // Abaikan klik pada menu dengan submenu
       if (!e.currentTarget.hasAttribute('onclick')) {
-        const content = await loadModule(menuId);
+        const content = await loadContentWithSpinner(menuId);
         document.getElementById('content').innerHTML = content;
       }
     });
@@ -33,6 +33,6 @@ window.toggleSubmenu = (menuId) => {
   
 
 // Load default content (Dashboard)
-loadModule('dashboard').then((content) => {
+loadContentWithSpinner('dashboard').then((content) => {
   document.getElementById('content').innerHTML = content;
 });

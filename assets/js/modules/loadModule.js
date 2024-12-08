@@ -13,6 +13,25 @@ export default async function loadModule(moduleId) {
   }
 }
 
+export async function loadContentWithSpinner(moduleId) {
+  const contentContainer = document.getElementById('content');
+  
+  showSpinner();
+
+  try {
+    const content = await loadModule(moduleId); 
+    contentContainer.innerHTML = content; 
+  } catch (error) {
+    console.error("Failed to load module:", error);
+    contentContainer.innerHTML = `
+      <div class="text-center text-red-500">
+        <h1 class="text-2xl font-bold">Error</h1>
+        <p>Sorry, an error occurred while loading the module.</p>
+      </div>
+    `;
+  }
+}
+
 
 // Helper function to resolve module paths for nested menus
 function getModulePath(moduleId) {
