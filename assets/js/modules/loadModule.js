@@ -2,6 +2,7 @@
 export default async function loadModule(moduleId) {
   try {
     const module = await import(`./${getModulePath(moduleId)}.js`);
+    closeMenu()
     return module.default();
   } catch (error) {
     console.error(`Failed to load module: ${moduleId}`, error);
