@@ -76,46 +76,66 @@ export default async function dashboard() {
       </div>
     </div>
 
-    <div id="dashboard_chart" class="grid grid-cols-2 md:grid-cols-2 gap-6 mt-6">
+    <div id="dashboard_chart" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-6">
       <!-- Grafik akan ditambahkan di sini -->
     </div>
 
     <!-- Detail Pajak -->
-    <div class="bg-white p-6 rounded-lg shadow-md mt-6">
-      <h2 class="text-lg font-bold mb-4">Detail Realisasi</h2>
-      <table class="w-full border-collapse">
-        <thead>
-          <tr class="bg-red-800 text-white">
-            <th class="border p-2 text-left">Jenis Pajak</th>
-            <th class="border p-2 text-center">Target</th>
-            <th class="border p-2 text-center">Realisasi</th>
-            <th class="border p-2 text-center">Sisa</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${detailPajak.map(pajak => {
+<div class="bg-white p-6 rounded-lg shadow-md mt-6">
+  <h2 class="text-lg font-bold mb-4">Detail Realisasi</h2>
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse min-w-max">
+      <thead>
+        <tr class="bg-red-800 text-white">
+          <th class="border p-2 text-left">Jenis Pajak</th>
+          <th class="border p-2 text-center">Target</th>
+          <th class="border p-2 text-center">Realisasi</th>
+          <th class="border p-2 text-center">Sisa</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${detailPajak
+          .map((pajak) => {
             const persentaseRealisasi = (pajak.realisasi / pajak.target) * 100;
 
             return `
-              <tr>
-                <td class="border p-2">
-                  ${pajak.jenis}
-                  <div class="mt-2">
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                      <div class="${persentaseRealisasi >= 100 ? 'bg-green-500' : 'bg-blue-500'} h-2 rounded-full" style="width: ${Math.min(persentaseRealisasi, 100)}%;"></div>
+            <tr>
+              <td class="border p-2">
+                ${pajak.jenis}
+                <div class="mt-2">
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="${
+                      persentaseRealisasi >= 100
+                        ? "bg-green-500"
+                        : "bg-blue-500"
+                    } h-2 rounded-full" style="width: ${Math.min(
+              persentaseRealisasi,
+              100
+            )}%;">
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">${persentaseRealisasi.toFixed(2)}% dari target</p>
                   </div>
-                </td>
-                <td class="border p-2 text-right">${formatCurrency(pajak.target)}</td>
-                <td class="border p-2 text-right">${formatCurrency(pajak.realisasi)}</td>
-                <td class="border p-2 text-right">${formatCurrency(pajak.sisa)}</td>
-              </tr>
-            `;
-          }).join('')}
-        </tbody>
-      </table>
-    </div>
+                  <p class="text-sm text-gray-500 mt-1">${persentaseRealisasi.toFixed(
+                    2
+                  )}% dari target</p>
+                </div>
+              </td>
+              <td class="border p-2 text-right">${formatCurrency(
+                pajak.target
+              )}</td>
+              <td class="border p-2 text-right">${formatCurrency(
+                pajak.realisasi
+              )}</td>
+              <td class="border p-2 text-right">${formatCurrency(
+                pajak.sisa
+              )}</td>
+            </tr>
+          `;
+          })
+          .join("")}
+      </tbody>
+    </table>
+  </div>
+</div>
   `;
 
   const container = document.getElementById('content');

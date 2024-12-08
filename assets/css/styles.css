@@ -2,4 +2,10 @@
 body {
     font-family: 'Inter', sans-serif;
   }
+  table {
+    border-spacing: 0; /* Hilangkan jarak antar sel untuk tampilan yang lebih rapi */
+  }
+  th, td {
+    white-space: nowrap; /* Hindari teks tabel memotong ke bawah */
+  }
   
