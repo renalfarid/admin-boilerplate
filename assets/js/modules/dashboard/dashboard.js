@@ -158,9 +158,6 @@ export default async function dashboard() {
         <div>
           <h2 class="text-sm font-bold">Sisa Target Pajak</h2>
           <p class="text-xl text-red-800">${formatCurrency(sisaTargetPajak)}</p>
-          <p class="text-sm text-red-500 mt-2">
-            ${persentaseTarget.toFixed(2)}% target yang belum tercapai
-          </p>
           <!-- Progress Bar -->
           <div class="mt-4">
             <div class="w-full bg-gray-200 rounded-full h-2 flex">
@@ -170,6 +167,9 @@ export default async function dashboard() {
               <!-- Merah (Sisa Target) -->
               <div class="bg-red-500 h-2 rounded-r-full flex-1"></div>
             </div>
+            <p class="text-sm text-red-500 mt-2">
+                ${persentaseTarget.toFixed(2)}% target yang belum tercapai
+                </p>
           </div>
         </div>
       </div>
