@@ -226,7 +226,7 @@ export default async function dashboard() {
   <div class="overflow-x-auto">
     <table class="w-full border-collapse min-w-max">
       <thead>
-        <tr class="bg-blue-800 text-white">
+        <tr class="bg-green-800 text-white">
           <th class="border p-2 text-left">Jenis Retribusi</th>
           <th class="border p-2 text-center">Realisasi</th>
           <th class="border p-2 text-center">Target</th>
