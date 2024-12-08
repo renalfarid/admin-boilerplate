@@ -66,7 +66,7 @@ export default function sidebar() {
       <!-- Hamburger Icon -->
       <button
         id="menu-toggle"
-        class="p-4 text-white bg-red-900  w-full md:w-full focus:outline-none flex justify-start"
+        class="p-4 text-white bg-red-900 w-full md:w-full focus:outline-none flex justify-start"
         aria-label="Toggle Sidebar"
       >
         <i class="fas fa-bars"></i>
@@ -75,7 +75,7 @@ export default function sidebar() {
       <!-- Sidebar -->
       <aside
         id="sidebar-menu"
-        class="bg-red-900 text-white w-full md:w-full lg:w-full p-4 min-h-screen"
+        class="bg-red-900 text-white w-full md:w-full lg:w-full p-4 min-h-screen hidden"
       >
         <ul>
           ${menu
@@ -120,7 +120,11 @@ export default function sidebar() {
 $(document).ready(function () {
   // Toggle Sidebar
   $("#menu-toggle").click(function () {
-    console.log("Menu clicked");
-    $("#sidebar-menu").toggleClass("-translate-x-full hidden");
+    const $menu = $("#sidebar-menu");
+    if ($menu.hasClass("hidden")) {
+      $menu.removeClass("hidden");
+    } else {
+      $menu.addClass("hidden");
+    }
   });
 });
