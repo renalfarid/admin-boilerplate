@@ -88,8 +88,8 @@ export default async function dashboard() {
       <thead>
         <tr class="bg-red-800 text-white">
           <th class="border p-2 text-left">Jenis Pajak</th>
-          <th class="border p-2 text-center">Target</th>
           <th class="border p-2 text-center">Realisasi</th>
+          <th class="border p-2 text-center">Target</th>
           <th class="border p-2 text-center">Sisa</th>
         </tr>
       </thead>
@@ -120,10 +120,10 @@ export default async function dashboard() {
                 </div>
               </td>
               <td class="border p-2 text-right">${formatCurrency(
-                pajak.target
+                pajak.realisasi
               )}</td>
               <td class="border p-2 text-right">${formatCurrency(
-                pajak.realisasi
+                pajak.target
               )}</td>
               <td class="border p-2 text-right">${formatCurrency(
                 pajak.sisa
