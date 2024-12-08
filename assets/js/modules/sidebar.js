@@ -2,29 +2,43 @@ export default function sidebar() {
   const menu = [
     { id: "dashboard", name: "Dashboard", icon: "fas fa-chart-line" },
     {
-      id: "jenis",
-      name: "Jenis Pajak",
-      icon: "fas fa-tags",
-      submenu: [{ id: "daftar", name: "Daftar Jenis Pajak" }],
-    },
-    {
-      id: "wp",
-      name: "Wajib Pajak",
-      icon: "fas fa-user",
+      id: "pajak",
+      name: "Manajemen Pajak",
+      icon: "fas fa-landmark",
       submenu: [
-        { id: "registrasi_wp", name: "Pendaftaran Wajib Pajak" },
-        { id: "list_wp", name: "List Wajib Pajak" },
-        { id: "status_wp", name: "Status Wajib Pajak" },
+        { id: "kategori", name: "Kategori Pajak" },
+        { id: "wp", name: "Wajib Pajak" },
+        { id: "laporan", name: "Laporan Pajak" },
+      ],
+    },
+    
+    {
+      id: "retribusi",
+      name: "Manajemen Retribusi",
+      icon: "fas fa-receipt",
+      submenu: [
+        { id: "kategori_r", name: "Kategori Retribusi" },
+        { id: "wr", name: "Data Wajib Retribusi" },
+        { id: "laporan_r", name: "Laporan Retribusi" },
       ],
     },
     {
-      id: "transaksi",
-      name: "Transaksi Pajak",
-      icon: "fas fa-receipt",
+      id: "aset",
+      name: "Manajemen Aset Daerah",
+      icon: "fas fa-gem",
       submenu: [
-        { id: "setor_pajak", name: "Setor Pajak" },
-        { id: "riwayat", name: "Riwayat Transaksi" },
-        { id: "rekapitulasi", name: "Rekapitulasi Pajak" },
+        { id: "data_aset", name: "Data Aset" },
+        { id: "laporan_aset", name: "Laporan Aset" },
+      ],
+    },
+    {
+      id: "pendapatan",
+      name: "Monitoring Pendapatan",
+      icon: "fas fa-coins",
+      submenu: [
+        { id: "laporan_pendapatan", name: "Laporan Pendapatan" },
+        { id: "pencapaian", name: "Target Pencapaian" },
+        { id: "evaluasi", name: "Hasil Evaluasi" },
       ],
     },
     {

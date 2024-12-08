@@ -23,6 +23,8 @@ export default async function dashboard() {
   
 
   const persentaseRealisasi = (data.realisasi_total / data.target_tahun_ini) * 100;
+  const sisaTargetPajak = data.pajak.target - data.pajak.realisasi;
+  const persentaseTarget = (sisaTargetPajak / data.pajak.target) * 100;
 
   const detailPajak = [
     { jenis: "Pajak Hotel", target: 7000000000, realisasi: 5753164254, sisa: -1246835746 },
@@ -117,8 +119,8 @@ export default async function dashboard() {
           <i class="fas fa-chart-line"></i>
         </div>
         <div>
-          <h2 class="text-lg font-bold">Realisasi Total</h2>
-          <p class="text-xl">${formatCurrency(data.realisasi_total)}</p>
+          <h2 class="text-sm font-bold">Realisasi Pajak Total</h2>
+          <p class="text-xl text-green-800">${formatCurrency(data.pajak.realisasi)}</p>
           <!-- Progress Bar -->
           <div class="mt-4">
             <div class="w-full bg-gray-200 rounded-full h-2">
@@ -134,8 +136,8 @@ export default async function dashboard() {
           <i class="fas fa-calendar-day"></i>
         </div>
         <div>
-          <h2 class="text-lg font-bold">Realisasi Bulan Ini</h2>
-          <p class="text-xl">${formatCurrency(data.realisasi_bulan_ini)}</p>
+          <h2 class="text-sm font-bold">Realisasi Pajak Bulan Ini</h2>
+          <p class="text-xl text-green-800">${formatCurrency(data.realisasi_bulan_ini)}</p>
         </div>
       </div>
 
@@ -144,8 +146,8 @@ export default async function dashboard() {
           <i class="fas fa-trophy"></i>
         </div>
         <div>
-          <h2 class="text-lg font-bold">Target Tahun Ini</h2>
-          <p class="text-xl">${formatCurrency(data.target_tahun_ini)}</p>
+          <h2 class="text-sm font-bold">Target Pajak Tahun Ini</h2>
+          <p class="text-xl text-gray-500">${formatCurrency(data.pajak.target)}</p>
         </div>
       </div>
 
@@ -154,8 +156,21 @@ export default async function dashboard() {
           <i class="fas fa-hourglass-half"></i>
         </div>
         <div>
-          <h2 class="text-lg font-bold">Sisa Target</h2>
-          <p class="text-xl">${formatCurrency(data.sisa)}</p>
+          <h2 class="text-sm font-bold">Sisa Target Pajak</h2>
+          <p class="text-xl text-red-800">${formatCurrency(sisaTargetPajak)}</p>
+          <p class="text-sm text-red-500 mt-2">
+            ${persentaseTarget.toFixed(2)}% target yang belum tercapai
+          </p>
+          <!-- Progress Bar -->
+          <div class="mt-4">
+            <div class="w-full bg-gray-200 rounded-full h-2 flex">
+              <!-- Hijau (Realisasi) -->
+              <div class="bg-green-500 h-2 rounded-l-full" 
+                  style="width: ${(data.pajak.realisasi / data.pajak.target * 100).toFixed(2)}%;"></div>
+              <!-- Merah (Sisa Target) -->
+              <div class="bg-red-500 h-2 rounded-r-full flex-1"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
