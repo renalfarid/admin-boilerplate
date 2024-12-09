@@ -41,6 +41,11 @@ function getModulePath(moduleId) {
     "notifikasi": "notifikasi/notifikasi",
     "logs": "logs/logs",
     "bantuan": "bantuan/bantuan",
+
+    // pajak
+    "kategori" : "pajak/jenis/jenis",
+    "wp" : "pajak/wp/daftar",
+    "laporan" : "pajak/laporan/laporan",
     
     // Submenus under "Users"
     "roles": "users/roles",
